@@ -1,0 +1,61 @@
+#Approach 1 
+def sortColors(self, nums: List[int]) -> None:
+        z,o,t=0,0,0
+        for i in nums:
+            if i==0:
+                z+=1
+            elif i==1:
+                o+=1
+            else:
+                t+=1
+        k=0
+        while(z>0):
+            nums[k]=0
+            z-=1
+            k+=1
+        while(o>0):
+            nums[k]=1
+            o-=1
+            k+=1
+        while(t>0):
+            nums[k]=2
+            t-=1
+            k+=1
+        return nums
+#Approach 2
+public:
+    void sortColors(vector<int>& nums) {
+        int low=0;
+        int mid=0;
+        int high=nums.size()-1;
+        while(mid<=high){
+            if(nums[mid]==0){
+                swap(nums[low],nums[mid]);
+                low++;
+                mid++;}
+            else if(nums[mid]==1){
+                mid++;
+                }
+            else{
+                swap(nums[high],nums[mid]);
+                high--;
+            }
+            }
+
+        
+    }
+};
+#Check AP 
+def checkIsAP(arr, n):
+    if (n == 1): return True
+    arr.sort()
+    d = arr[1] - arr[0]
+    for i in range(2, n):
+        if (arr[i] - arr[i-1] != d):
+            return False
+ 
+    return True
+                   
+                    
+        
+        
